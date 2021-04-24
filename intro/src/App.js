@@ -9,18 +9,24 @@ export default class App extends Component {
 
   changeCategory = category => {
     this.setState({ currentCategory: category.categoryName });
+    console.log(category)
+    this.getProducts(category.id)
   }
 
+  // getProducts 'ı çalıştırır.
   componentDidMount() {
     this.getProducts();
   }
 
-  getProducts = () => {
-    fetch("http://localhost:3000/products")
+  getProducts = (categoryId) => {
+    let url = "http://localhost:3000/products";
+    if (categoryId) {
+      url += "?categoryId=" + categoryId;
+    }
+    fetch(url)
       .then(response => response.json())
       .then(dataa => this.setState({ products: dataa }));
   }
-
 
   render() {
 

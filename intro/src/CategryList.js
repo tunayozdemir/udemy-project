@@ -21,19 +21,19 @@ export default class CategryList extends Component {
   render() {
     return (
       <div>
-        <h3>{this.props.info.title}</h3>
+        <h5>{this.props.info.title}</h5>
         <ListGroup>
           {this.state.categories.map(category => (
             <ListGroupItem
               onClick={() => this.props.changeCategory(category)}
-              key={category.categoryId}
+              key={category.id}
               >
               {category.categoryName}
             </ListGroupItem>
           ))
           }
         </ListGroup>
-        <h4>{this.props.currentCategory}</h4>
+        {/* <h4>{this.props.currentCategory}</h4> */}
       </div>
     )
   }
