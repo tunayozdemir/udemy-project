@@ -3,13 +3,20 @@ import { ListGroup, ListGroupItem } from 'reactstrap'
 
 export default class CategryList extends Component {
 
+  // contructor'ın olmasına gerek yok 
   constructor(props) {
     super(props);
     this.state = {
       categories: [
         { categoryId: 1, categoryName: "Beverages" },
-        { categoryId: 2, categoryName: "Condiments" }]
+        { categoryId: 2, categoryName: "Condiments" }
+      ],
+      currentCategory :""
     }
+  }
+
+  changeCategory = (category) => {
+    this.setState({currentCategory:category.categoryName})
   }
 
   render() {
@@ -18,10 +25,11 @@ export default class CategryList extends Component {
         <h3>{this.props.info.title}</h3>
         <ListGroup>
           {this.state.categories.map(category => (
-            <ListGroupItem key={category.categoryId}>{category.categoryName}</ListGroupItem>
+            <ListGroupItem onClick={()=>this.changeCategory(category)} key={category.categoryId}>{category.categoryName}</ListGroupItem>
           ))
           }
         </ListGroup>
+        <h4>{this.state.currentCategory}</h4>
       </div>
     )
   }
