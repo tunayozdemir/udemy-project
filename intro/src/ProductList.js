@@ -7,7 +7,7 @@ export default class ProductList extends Component {
   render() {
     return (
       <div>
-        <h5>{this.props.info.title}-{this.props.currentCategory}</h5>
+        <h5>{this.props.info.title} - {this.props.currentCategory ? this.props.currentCategory :"All List"}</h5>
         <Table>
           <thead>
             <tr>

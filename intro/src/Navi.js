@@ -1,5 +1,6 @@
 import React, {Component}  from 'react';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarText } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, NavbarText } from 'reactstrap';
+import CartSummery from './CartSummery';
 export default class Navi extends Component {
 
   toggle = this.toggle.bind(this)
@@ -25,23 +26,7 @@ export default class Navi extends Component {
             <NavItem>
               <NavLink href="">GitHub</NavLink>
             </NavItem>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Options - {this.props.cart.length}
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>
-                  Option 1
-                </DropdownItem>
-                <DropdownItem>
-                  Option 2
-                </DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>
-                  Reset
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
+            <CartSummery cart={this.props.cart}/>
           </Nav>
           <NavbarText>Simple Text</NavbarText>
         </Collapse>
