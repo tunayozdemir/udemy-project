@@ -71,6 +71,7 @@ export default class App extends Component {
                 info={categoryInfo} />
             </Col>
             <Col xs="9">
+            
               <ProductList
                 addtToCart={this.addtToCart}
                 products={this.state.products}
