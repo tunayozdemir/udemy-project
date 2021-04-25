@@ -1,16 +1,7 @@
 import React, { Component } from 'react'
-import { Table } from 'reactstrap';
+import { Table, Button } from 'reactstrap';
 
 export default class ProductList extends Component {
-  // Eski versiyonlarda constractor gerekli olmasına rağmen artık gerekli değil. 
-  //this.pros diyerek değeri alabiliriz
-
-  state = {
-    categories: [
-      { categoryId: 1, categoryName: "Beverages" },
-      { categoryId: 2, categoryName: "Condiments" }
-    ],
-  }
 
 
   render() {
@@ -25,6 +16,7 @@ export default class ProductList extends Component {
               <th>Quantity Per Unit</th>
               <th>Unit Price</th>
               <th>Units In Stock</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -35,6 +27,7 @@ export default class ProductList extends Component {
                 <td>{product.quantityPerUnit}</td>
                 <td>{product.unitPrice}</td>
                 <td>{product.unitsInStock}</td>
+                <td><Button onClick={()=> this.props.addtToCart(product)} color="info">Add</Button></td>
               </tr>
             ))}
           </tbody>
